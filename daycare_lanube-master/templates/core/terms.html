@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_page %}
+{{ title_page }}
+{% endblock %}
+
+{% block breadcrumb %}
+
+    <li class="breadcrumb-item active" aria-current="page">        
+        {{ title_page }}
+    </li>
+{% endblock %}
+
+{% block content %}
+<div class="col-lg-12 col-md-12">
+    {% if form.errors %}
+    {% for key, value in form.errors.items %}                        
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+            {{value}}
+        </div>
+    {% endfor %} 
+    {% endif %}
+        <div class="card">
+            <div class="card-body">
+                <p>I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the
+                    truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences</p>
+                <ul>
+                    <li><i class="fa fa-angle-double-right"></i> ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores </li>
+                    <li><i class="fa fa-angle-double-right"></i> quas molestias excepturi sint occaecati cupiditate non provident</li>
+                    <li><i class="fa fa-angle-double-right"></i> Nam libero tempore, cum soluta nobis est eligendi optio cumque</li>
+                    <li><i class="fa fa-angle-double-right"></i> Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates</li>
+                    <li><i class="fa fa-angle-double-right"></i> repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus</li>
+                    <li><i class="fa fa-angle-double-right"></i> ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body text-start">
+                <div class="terms">
+                    <p>Debe aceptar los términos y condiciones antes de continuar.</p>
+                    <form method="post" action="{% url 'core:set_status_terms' %}">
+                        {% csrf_token %}
+                        <input type="hidden" value="accept" name="terms_status" id="terms_status">
+                        <button type="submit" class="btn btn-primary text-white">Aceptar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}
+
+{% block jsextra %}
+
+    
+    <script src="{% static 'plugins/bootstrap5-typehead/autocomplete.js' %}"></script>
+    <script src="{% static 'js/typehead.js' %}"></script>
+    <script src="{% static 'plugins/formwizard/jquery.smartWizard.js' %}"></script>
+    <script src="{% static 'plugins/formwizard/fromwizard.js' %}"></script>
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'plugins/parsleyjs/parsley.min.js' %}"></script>
+    <script src="{% static 'js/form-wizard.js' %}"></script>
+
+
+    <script src="{% static 'plugins/select2/select2.full.min.js' %}"></script>
+    <script src="{% static 'js/select2.js' %}"></script>
+    <script src="{% static 'js/form-validation.js' %}"></script>
+
+    <script src="{% static 'js/formelementadvnced' %}"></script>
+    <script src="{% static 'js/form-elements.js' %}"></script>
+
+
+    <script src="{% static 'plugins/fileuploads/js/fileupload.js' %}"></script>
+    <script src="{% static 'plugins/fileuploads/js/file-upload.js' %}"></script>
+    <script src="{% static 'plugins/fancyuploder/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'plugins/fancyuploder/jquery.fileupload.js' %}"></script>
+    <script src="{% static 'plugins/fancyuploder/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'plugins/fancyuploder/jquery.fancy-fileupload.js' %}"></script>
+    <script src="{% static 'plugins/fancyuploder/fancy-uploader.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#two').removeClass("active");
+            $('#one').addClass("active");
+        });
+    </script>
+
+{% endblock %}
