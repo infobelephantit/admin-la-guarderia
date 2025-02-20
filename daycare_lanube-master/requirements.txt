@@ -1,8 +1,0 @@
-django
-django-clearcache
-psycopg-binary
-django-rest-framework
-django_resized
-Pillow
-django-session-timeout
-django-sonar
